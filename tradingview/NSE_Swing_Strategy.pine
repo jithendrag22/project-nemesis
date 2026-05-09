@@ -1,0 +1,241 @@
+//@version=6
+
+// =============================================================================
+// NSE SWING STRATEGIES -- EMA Pullback + Cooper 5-Day
+// Project Nemesis | Pine Script v6
+//
+// HOW TO USE:
+//   1. Open TradingView -> New Chart -> Daily timeframe -> any NSE stock
+//   2. Pine Editor -> paste this script -> Add to Chart
+//   3. Strategy Tester tab -> Overview -> year-by-year breakdown auto-generated
+//   4. Top-right table shows WR%, Profit Factor, Expectancy, Max DD
+//   5. Switch the stock ticker -> Strategy Tester updates instantly
+//   6. Green triangles = EMA Pullback | Blue = Cooper 5-Day | Gold star = both agree
+//
+// STRATEGY RULES:
+//   EMA Pullback : Stage2 + EMA rising + Low touches EMA for 2-5 bars
+//                  + Close breaks pullback high on >=1.5x avg volume
+//   Cooper 5-Day : Stage2 + 3-5 consecutive lower closes
+//                  + Close > yesterday high + pullback stays above SMA50
+//   Both         : Rs 1000 risk per trade, 2:1 target, hard exit Day 5
+// =============================================================================
+
+strategy("NSE Swing: EMA Pullback + Cooper 5-Day", shorttitle="NSE Swing", overlay=true, default_qty_type=strategy.fixed, default_qty_value=1, commission_type=strategy.commission.cash_per_order, commission_value=100, slippage=3, initial_capital=1000000, pyramiding=0, calc_on_every_tick=false)
+
+// -- INPUTS -------------------------------------------------------------------
+var string G1 = "Strategy"
+var string G2 = "Trade Management"
+var string G3 = "Filters"
+
+mode      = input.string("Both", "Active Strategy", options=["EMA Pullback", "Cooper 5-Day", "Both"], group=G1)
+risk_inr  = input.int(1000,  "Risk Per Trade (Rs)",       group=G2, minval=100)
+max_cap   = input.int(50000, "Max Capital Per Trade (Rs)", group=G2, minval=1000)
+rr        = input.float(2.0, "Reward : Risk",              group=G2, step=0.5)
+max_hold  = input.int(5,     "Hard Exit (trading days)",   group=G2, minval=2, maxval=20)
+stop_buf  = input.float(0.25,"Stop Buffer (%)",            group=G2, step=0.05) / 100
+
+adx_on    = input.bool(true, "ADX filter (25-45)",        group=G3)
+vol_on    = input.bool(true, "Volume surge on EMA entry", group=G3)
+skip_jul  = input.bool(true, "Skip July signals",         group=G3)
+skip_sep  = input.bool(true, "Skip September signals",    group=G3)
+skip_dec  = input.bool(true, "Skip December signals",     group=G3)
+
+// -- INDICATORS ---------------------------------------------------------------
+ema20  = ta.ema(close, 20)
+sma50  = ta.sma(close, 50)
+sma200 = ta.sma(close, 200)
+vol20  = ta.sma(volume, 20)
+[_, _, adx_v] = ta.dmi(14, 14)
+
+// -- COMMON FILTERS -----------------------------------------------------------
+stage2    = close > sma50 and sma50 > sma200 and sma50 > sma50[20]
+adx_ok    = not adx_on or (adx_v >= 25 and adx_v <= 45)
+bad_month = (skip_jul and month == 7) or (skip_sep and month == 9) or (skip_dec and month == 12)
+base_ok   = stage2 and adx_ok and not bad_month
+
+// -- EMA PULLBACK DETECTION ---------------------------------------------------
+// Pullback = consecutive bars where Low <= EMA * 1.005 (within 0.5% of EMA)
+// Signal   = close breaks above the highest High of those pullback bars
+
+t1 = low[1] <= ema20[1] * 1.005
+t2 = low[2] <= ema20[2] * 1.005
+t3 = low[3] <= ema20[3] * 1.005
+t4 = low[4] <= ema20[4] * 1.005
+t5 = low[5] <= ema20[5] * 1.005
+
+pb2 = t1 and t2 and not t3
+pb3 = t1 and t2 and t3 and not t4
+pb4 = t1 and t2 and t3 and t4 and not t5
+pb5 = t1 and t2 and t3 and t4 and t5
+
+ph2 = math.max(high[1], high[2])
+ph3 = math.max(ph2, high[3])
+ph4 = math.max(ph3, high[4])
+ph5 = math.max(ph4, high[5])
+
+pl2 = math.min(low[1], low[2])
+pl3 = math.min(pl2, low[3])
+pl4 = math.min(pl3, low[4])
+pl5 = math.min(pl4, low[5])
+
+pre2 = close[3] > ema20[3]
+pre3 = close[4] > ema20[4]
+pre4 = close[5] > ema20[5]
+pre5 = close[6] > ema20[6]
+
+ema_up = ema20 > ema20[3]
+vol_ok = not vol_on or volume > 1.5 * vol20
+
+s2 = pb2 and close > ph2 and close > ema20 and ema_up and pre2 and vol_ok and base_ok
+s3 = pb3 and close > ph3 and close > ema20 and ema_up and pre3 and vol_ok and base_ok
+s4 = pb4 and close > ph4 and close > ema20 and ema_up and pre4 and vol_ok and base_ok
+s5 = pb5 and close > ph5 and close > ema20 and ema_up and pre5 and vol_ok and base_ok
+
+sig_ema     = s2 or s3 or s4 or s5
+ema_pb_high = s2 ? ph2 : s3 ? ph3 : s4 ? ph4 : ph5
+ema_pb_low  = s2 ? pl2 : s3 ? pl3 : s4 ? pl4 : pl5
+ema_pb_n    = s2 ? 2   : s3 ? 3   : s4 ? 4   : 5
+
+// -- COOPER 5-DAY DETECTION ---------------------------------------------------
+// 3-5 consecutive lower closes -> today closes above yesterday's high
+
+lc1 = close[1] < close[2]
+lc2 = close[2] < close[3]
+lc3 = close[3] < close[4]
+lc4 = close[4] < close[5]
+lc5 = close[5] < close[6]
+lc6 = close[6] < close[7]
+
+pb_n = lc1 and lc2 and lc3 ? (lc4 ? (lc5 ? (lc6 ? 0 : 5) : 4) : 3) : 0
+
+c_trigger = close > high[1]
+
+c_pl3 = math.min(math.min(low[1], low[2]), low[3])
+c_pl4 = math.min(c_pl3, low[4])
+c_pl5 = math.min(c_pl4, low[5])
+c_pl  = pb_n == 5 ? c_pl5 : pb_n == 4 ? c_pl4 : c_pl3
+
+c_above50 = c_pl > sma50 * 0.985
+c_pbvol   = (volume[1] + volume[2] + volume[3]) / 3.0
+c_voldry  = c_pbvol < 0.85 * vol20
+
+sig_cooper = pb_n >= 3 and c_trigger and base_ok and c_above50 and c_voldry
+
+// -- POSITION SIZING (Rs 1000 risk per trade) ---------------------------------
+f_qty(entry_px, stop_px) =>
+    risk_px = entry_px - stop_px
+    risk_px <= 0 ? 0 : math.min(math.floor(risk_inr / risk_px), math.floor(max_cap / entry_px))
+
+// -- AVERAGE HOLD TRACKING ----------------------------------------------------
+var int   _entry_bar       = 0
+var bool  _was_in_trade    = false
+var float _bars_held_total = 0.0
+var int   _trades_closed   = 0
+
+_in_trade = strategy.position_size > 0
+if _in_trade and not _was_in_trade
+    _entry_bar := bar_index
+if not _in_trade and _was_in_trade
+    _bars_held_total += bar_index - _entry_bar
+    _trades_closed   += 1
+_was_in_trade := _in_trade
+
+// -- TRADE EXECUTION ----------------------------------------------------------
+use_ema    = mode == "EMA Pullback" or mode == "Both"
+use_cooper = mode == "Cooper 5-Day" or mode == "Both"
+no_trade   = strategy.position_size == 0
+
+enter_ema    = use_ema    and sig_ema    and no_trade
+enter_cooper = use_cooper and sig_cooper and no_trade
+
+if enter_ema
+    sl  = ema_pb_low * (1 - stop_buf)
+    tgt = close + rr * (close - sl)
+    qty = f_qty(close, sl)
+    if qty > 0
+        strategy.entry("EMA PB", strategy.long, qty=qty, comment="EMA " + str.tostring(ema_pb_n) + "d")
+        strategy.exit("EMA PB X", "EMA PB", stop=sl, limit=tgt, comment="exit")
+
+if enter_cooper
+    sl  = c_pl * (1 - stop_buf)
+    tgt = close + rr * (close - sl)
+    qty = f_qty(close, sl)
+    if qty > 0
+        strategy.entry("Cooper", strategy.long, qty=qty, comment="C" + str.tostring(pb_n) + "d")
+        strategy.exit("Cooper X", "Cooper", stop=sl, limit=tgt, comment="exit")
+
+// Hard time exit after N trading days
+if strategy.opentrades > 0
+    bars_in = bar_index - strategy.opentrades.entry_bar_index(0)
+    if bars_in >= max_hold
+        strategy.close_all(comment="Day " + str.tostring(max_hold) + " exit")
+
+// -- VISUALS ------------------------------------------------------------------
+plot(ema20,  "EMA 20",  color=color.new(color.blue,   15), linewidth=2)
+plot(sma50,  "SMA 50",  color=color.new(color.orange,  0), linewidth=1)
+plot(sma200, "SMA 200", color=color.new(color.red,    25), linewidth=1)
+
+plotshape(enter_ema,    "EMA PB Signal", shape.triangleup, location.belowbar, color.new(color.green, 0), size=size.small,  text="PB",  textcolor=color.white)
+plotshape(enter_cooper, "Cooper Signal", shape.triangleup, location.belowbar, color.new(color.blue,  0), size=size.small,  text="C5",  textcolor=color.white)
+plotshape(enter_ema and enter_cooper, "Both Agree", shape.diamond, location.belowbar, color.new(color.yellow, 0), size=size.normal, text="BOTH", textcolor=color.black)
+
+bgcolor(bad_month ? color.new(color.red, 93) : na, title="Skip Month")
+
+// -- STATS TABLE (top-right) --------------------------------------------------
+var table tbl = table.new(position.top_right, 2, 11, bgcolor=color.new(color.black, 72), border_color=color.new(color.gray, 50), border_width=1, frame_color=color.new(color.silver, 20), frame_width=1)
+
+if barstate.islast
+    tc  = strategy.closedtrades
+    tw  = strategy.wintrades
+    tl  = tc - tw
+    wr  = tc > 0 ? tw / tc * 100.0 : 0.0
+    gp  = strategy.grossprofit
+    gl  = math.abs(strategy.grossloss)
+    pf  = gl > 0 ? gp / gl : 0.0
+    aw  = tw > 0 ? gp / tw : 0.0
+    al  = tl > 0 ? -(gl / tl) : 0.0
+    np  = strategy.netprofit
+    md  = strategy.max_drawdown
+    exp_r = tc > 0 ? (wr / 100.0 * (aw / risk_inr) + (1 - wr / 100.0) * (al / risk_inr)) : 0.0
+    avg_hold_d = _trades_closed > 0 ? _bars_held_total / _trades_closed : 0.0
+
+    C_HDR = color.new(color.silver, 10)
+    C_VAL = color.white
+    C_GRN = color.new(color.lime,   10)
+    C_RED = color.new(color.red,    10)
+    C_YLW = color.new(color.yellow, 10)
+    C_BG  = color.new(color.navy,   55)
+    SZ    = size.small
+
+    table.cell(tbl, 0, 0, "NSE Swing | " + mode, text_color=C_HDR, text_size=SZ, bgcolor=C_BG)
+    table.cell(tbl, 1, 0, "",                     text_color=C_HDR, text_size=SZ, bgcolor=C_BG)
+
+    table.cell(tbl, 0, 1, "Trades",       text_color=C_HDR, text_size=SZ)
+    table.cell(tbl, 1, 1, str.tostring(tc) + " (W:" + str.tostring(tw) + " L:" + str.tostring(tl) + ")", text_color=C_VAL, text_size=SZ)
+
+    table.cell(tbl, 0, 2, "Win Rate",     text_color=C_HDR, text_size=SZ)
+    table.cell(tbl, 1, 2, str.tostring(math.round(wr, 1)) + "%", text_color=wr >= 40 ? C_GRN : wr >= 33.3 ? C_YLW : C_RED, text_size=SZ)
+
+    table.cell(tbl, 0, 3, "Profit Factor", text_color=C_HDR, text_size=SZ)
+    table.cell(tbl, 1, 3, str.tostring(math.round(pf, 2)), text_color=pf >= 1.5 ? C_GRN : pf >= 1.0 ? C_YLW : C_RED, text_size=SZ)
+
+    table.cell(tbl, 0, 4, "Avg Win",      text_color=C_HDR, text_size=SZ)
+    table.cell(tbl, 1, 4, "Rs " + str.tostring(math.round(aw, 0)), text_color=C_GRN, text_size=SZ)
+
+    table.cell(tbl, 0, 5, "Avg Loss",     text_color=C_HDR, text_size=SZ)
+    table.cell(tbl, 1, 5, "Rs " + str.tostring(math.round(al, 0)), text_color=C_RED, text_size=SZ)
+
+    table.cell(tbl, 0, 6, "Expectancy",   text_color=C_HDR, text_size=SZ)
+    table.cell(tbl, 1, 6, str.tostring(math.round(exp_r, 3)) + "R", text_color=exp_r > 0.10 ? C_GRN : exp_r > 0 ? C_YLW : C_RED, text_size=SZ)
+
+    table.cell(tbl, 0, 7, "Net P&L",      text_color=C_HDR, text_size=SZ)
+    table.cell(tbl, 1, 7, "Rs " + str.tostring(math.round(np, 0)), text_color=np > 0 ? C_GRN : C_RED, text_size=SZ)
+
+    table.cell(tbl, 0, 8, "Max Drawdown", text_color=C_HDR, text_size=SZ)
+    table.cell(tbl, 1, 8, "Rs " + str.tostring(math.round(md, 0)), text_color=C_RED, text_size=SZ)
+
+    table.cell(tbl, 0, 9, "Avg Hold",     text_color=C_HDR, text_size=SZ)
+    table.cell(tbl, 1, 9, str.tostring(math.round(avg_hold_d, 1)) + " bars", text_color=C_VAL, text_size=SZ)
+
+    table.cell(tbl, 0, 10, "Year breakdown",    text_color=C_HDR, text_size=size.tiny)
+    table.cell(tbl, 1, 10, "-> Strategy Tester", text_color=C_YLW, text_size=size.tiny)

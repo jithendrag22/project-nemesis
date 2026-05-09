@@ -1,0 +1,122 @@
+symbol,name,sector
+RELIANCE.NS,Reliance Industries,Energy
+TCS.NS,Tata Consultancy Services,IT
+HDFCBANK.NS,HDFC Bank,Banking
+INFY.NS,Infosys,IT
+ICICIBANK.NS,ICICI Bank,Banking
+HINDUNILVR.NS,Hindustan Unilever,FMCG
+SBIN.NS,State Bank of India,Banking
+BHARTIARTL.NS,Bharti Airtel,Telecom
+KOTAKBANK.NS,Kotak Mahindra Bank,Banking
+ITC.NS,ITC Limited,FMCG
+LT.NS,Larsen & Toubro,Infrastructure
+AXISBANK.NS,Axis Bank,Banking
+ASIANPAINT.NS,Asian Paints,Consumer
+MARUTI.NS,Maruti Suzuki,Auto
+WIPRO.NS,Wipro,IT
+ULTRACEMCO.NS,UltraTech Cement,Cement
+TITAN.NS,Titan Company,Consumer
+SUNPHARMA.NS,Sun Pharmaceutical,Pharma
+BAJFINANCE.NS,Bajaj Finance,NBFC
+HCLTECH.NS,HCL Technologies,IT
+NESTLEIND.NS,Nestle India,FMCG
+TECHM.NS,Tech Mahindra,IT
+TATASTEEL.NS,Tata Steel,Metals
+POWERGRID.NS,Power Grid Corporation,Utilities
+NTPC.NS,NTPC,Utilities
+ONGC.NS,Oil and Natural Gas Corp,Energy
+BAJAJFINSV.NS,Bajaj Finserv,NBFC
+JSWSTEEL.NS,JSW Steel,Metals
+GRASIM.NS,Grasim Industries,Diversified
+DIVISLAB.NS,Divi's Laboratories,Pharma
+DRREDDY.NS,Dr Reddy's Laboratories,Pharma
+CIPLA.NS,Cipla,Pharma
+TATACONSUM.NS,Tata Consumer Products,FMCG
+TATAMOTORS.NS,Tata Motors,Auto
+M&M.NS,Mahindra & Mahindra,Auto
+ADANIENT.NS,Adani Enterprises,Diversified
+ADANIPORTS.NS,Adani Ports,Logistics
+COALINDIA.NS,Coal India,Mining
+BRITANNIA.NS,Britannia Industries,FMCG
+EICHERMOT.NS,Eicher Motors,Auto
+BPCL.NS,Bharat Petroleum,Energy
+HEROMOTOCO.NS,Hero MotoCorp,Auto
+APOLLOHOSP.NS,Apollo Hospitals,Healthcare
+BAJAJ-AUTO.NS,Bajaj Auto,Auto
+INDUSINDBK.NS,IndusInd Bank,Banking
+HINDALCO.NS,Hindalco Industries,Metals
+TATAPOWER.NS,Tata Power,Utilities
+VEDL.NS,Vedanta,Metals
+SHREECEM.NS,Shree Cement,Cement
+PIDILITIND.NS,Pidilite Industries,Chemicals
+HAVELLS.NS,Havells India,Consumer Electricals
+BERGEPAINT.NS,Berger Paints,Consumer
+MCDOWELL-N.NS,United Spirits,FMCG
+COLPAL.NS,Colgate-Palmolive,FMCG
+MARICO.NS,Marico,FMCG
+DABUR.NS,Dabur India,FMCG
+GODREJCP.NS,Godrej Consumer Products,FMCG
+SIEMENS.NS,Siemens,Capital Goods
+ABB.NS,ABB India,Capital Goods
+BOSCHLTD.NS,Bosch,Auto Ancillary
+MUTHOOTFIN.NS,Muthoot Finance,NBFC
+LUPIN.NS,Lupin,Pharma
+BIOCON.NS,Biocon,Pharma
+TORNTPHARM.NS,Torrent Pharmaceuticals,Pharma
+AUROPHARMA.NS,Aurobindo Pharma,Pharma
+ALKEM.NS,Alkem Laboratories,Pharma
+IPCALAB.NS,IPCA Laboratories,Pharma
+RECLTD.NS,REC Limited,NBFC
+PFC.NS,Power Finance Corporation,NBFC
+LICHSGFIN.NS,LIC Housing Finance,NBFC
+CHOLAFIN.NS,Cholamandalam Investment,NBFC
+MOTHERSON.NS,Motherson Sumi Wiring,Auto Ancillary
+BALKRISIND.NS,Balkrishna Industries,Auto Ancillary
+EXIDEIND.NS,Exide Industries,Auto Ancillary
+AMBUJACEM.NS,Ambuja Cements,Cement
+ACC.NS,ACC,Cement
+RAMCOCEM.NS,Ramco Cements,Cement
+DALMIACEME.NS,Dalmia Bharat,Cement
+TRENT.NS,Trent,Retail
+NYKAA.NS,FSN E-Commerce (Nykaa),Retail
+DMART.NS,Avenue Supermarts,Retail
+ZOMATO.NS,Zomato,Food Tech
+PAYTM.NS,One 97 Communications,Fintech
+POLICYBZR.NS,PB Fintech,Fintech
+IRCTC.NS,IRCTC,Travel
+INDIGO.NS,IndiGo (InterGlobe Aviation),Aviation
+CONCOR.NS,Container Corporation,Logistics
+GLAND.NS,Gland Pharma,Pharma
+LALPATHLAB.NS,Dr Lal PathLabs,Healthcare
+METROPOLIS.NS,Metropolis Healthcare,Healthcare
+FORTIS.NS,Fortis Healthcare,Healthcare
+MAXHEALTH.NS,Max Healthcare,Healthcare
+MFSL.NS,Max Financial Services,Insurance
+SBILIFE.NS,SBI Life Insurance,Insurance
+HDFCLIFE.NS,HDFC Life Insurance,Insurance
+ICICIGI.NS,ICICI Lombard General Insurance,Insurance
+NAUKRI.NS,Info Edge (Naukri),Internet
+ZEEL.NS,Zee Entertainment,Media
+PVR.NS,PVR,Entertainment
+INOXLEISUR.NS,Inox Leisure,Entertainment
+PAGEIND.NS,Page Industries,Textiles
+WHIRLPOOL.NS,Whirlpool of India,Consumer Durables
+VOLTAS.NS,Voltas,Consumer Durables
+BLUESTARCO.NS,Blue Star,Consumer Durables
+Dixon.NS,Dixon Technologies,Electronics
+AMBER.NS,Amber Enterprises,Electronics
+GUJGASLTD.NS,Gujarat Gas,Utilities
+IGL.NS,Indraprastha Gas,Utilities
+MGL.NS,Mahanagar Gas,Utilities
+TORNTPOWER.NS,Torrent Power,Utilities
+CESC.NS,CESC,Utilities
+NHPC.NS,NHPC,Utilities
+GMRINFRA.NS,GMR Infrastructure,Infrastructure
+IRB.NS,IRB Infrastructure,Infrastructure
+ASHOKA.NS,Ashoka Buildcon,Infrastructure
+KNRCON.NS,KNR Constructions,Infrastructure
+OBEROIRLTY.NS,Oberoi Realty,Real Estate
+DLF.NS,DLF,Real Estate
+GODREJPROP.NS,Godrej Properties,Real Estate
+PRESTIGE.NS,Prestige Estates,Real Estate
+PHOENIXLTD.NS,Phoenix Mills,Real Estate

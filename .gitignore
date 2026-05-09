@@ -1,0 +1,40 @@
+# Large data files — download locally with the scripts in README.md
+data/intraday_1h/
+data/prices/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.venv/
+env/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs and temp files
+logs/*.log
+*.tmp
+
+# Secrets — never commit real credentials
+# config.py is committed but with empty token strings
+# If you accidentally fill in tokens, add config.py here
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

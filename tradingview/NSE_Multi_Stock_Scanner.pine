@@ -1,0 +1,206 @@
+//@version=6
+
+// =============================================================================
+// NSE MULTI-STOCK SWING SCANNER
+// Project Nemesis | Pine Script v6
+//
+// HOW TO USE:
+//   1. This is an INDICATOR (not a strategy) -- paste into Pine Editor
+//   2. Keep any NSE daily chart open (e.g. NIFTY) -- base chart does not matter
+//      The scanner always checks all 10 symbols you set below
+//   3. In Inputs panel, change symbols to any NSE stocks you want to monitor
+//      Format: NSE:RELIANCE, NSE:TCS, NSE:HDFCBANK, etc.
+//   4. Table updates every bar. At the right edge it shows today's signal status
+//   5. Green row = EMA Pullback signal | Blue row = Cooper signal
+//      Gold row = both agree (highest conviction) | Dark red = skip month
+//
+// SIGNAL LOGIC (same as NSE_Swing_Strategy.pine):
+//   EMA PB  : Stage2 + EMA rising + 2-5 bar pullback to EMA + volume surge
+//   Cooper  : Stage2 + 3-5 consecutive lower closes + close > yesterday high
+//             + pullback stays above SMA50 + volume dry-up during pullback
+//   Filters : ADX 25-45 | Skip Jul / Sep / Dec
+// =============================================================================
+
+indicator("NSE Multi-Stock Scanner", overlay=false, max_bars_back=500)
+
+// -- SYMBOL INPUTS ------------------------------------------------------------
+var string GS = "Stocks to Scan (format: NSE:SYMBOL)"
+
+sym1  = input.symbol("NSE:RELIANCE",   "Stock 1",  group=GS)
+sym2  = input.symbol("NSE:TCS",        "Stock 2",  group=GS)
+sym3  = input.symbol("NSE:HDFCBANK",   "Stock 3",  group=GS)
+sym4  = input.symbol("NSE:INFY",       "Stock 4",  group=GS)
+sym5  = input.symbol("NSE:ICICIBANK",  "Stock 5",  group=GS)
+sym6  = input.symbol("NSE:WIPRO",      "Stock 6",  group=GS)
+sym7  = input.symbol("NSE:AXISBANK",   "Stock 7",  group=GS)
+sym8  = input.symbol("NSE:KOTAKBANK",  "Stock 8",  group=GS)
+sym9  = input.symbol("NSE:BHARTIARTL", "Stock 9",  group=GS)
+sym10 = input.symbol("NSE:ITC",        "Stock 10", group=GS)
+
+// -- FILTER TOGGLES -----------------------------------------------------------
+var string GF = "Filters"
+
+adx_on   = input.bool(true, "ADX filter (25-45)",       group=GF)
+vol_on   = input.bool(true, "Volume surge (EMA entry)",  group=GF)
+skip_jul = input.bool(true, "Skip July",                 group=GF)
+skip_sep = input.bool(true, "Skip September",            group=GF)
+skip_dec = input.bool(true, "Skip December",             group=GF)
+
+// -- CORE DETECTION FUNCTION --------------------------------------------------
+// One request.security() call per stock returns all signal data as a tuple
+f_signals() =>
+    _ema20  = ta.ema(close, 20)
+    _sma50  = ta.sma(close, 50)
+    _sma200 = ta.sma(close, 200)
+    _vol20  = ta.sma(volume, 20)
+    [_, _, _adx] = ta.dmi(14, 14)
+
+    _stage2    = close > _sma50 and _sma50 > _sma200 and _sma50 > _sma50[20]
+    _adx_ok    = not adx_on or (_adx >= 25 and _adx <= 45)
+    _bad_month = (skip_jul and month == 7) or (skip_sep and month == 9) or (skip_dec and month == 12)
+    _base_ok   = _stage2 and _adx_ok and not _bad_month
+
+    // EMA Pullback
+    _t1 = low[1] <= _ema20[1] * 1.005
+    _t2 = low[2] <= _ema20[2] * 1.005
+    _t3 = low[3] <= _ema20[3] * 1.005
+    _t4 = low[4] <= _ema20[4] * 1.005
+    _t5 = low[5] <= _ema20[5] * 1.005
+
+    _pb2 = _t1 and _t2 and not _t3
+    _pb3 = _t1 and _t2 and _t3 and not _t4
+    _pb4 = _t1 and _t2 and _t3 and _t4 and not _t5
+    _pb5 = _t1 and _t2 and _t3 and _t4 and _t5
+
+    _ph2 = math.max(high[1], high[2])
+    _ph3 = math.max(_ph2, high[3])
+    _ph4 = math.max(_ph3, high[4])
+    _ph5 = math.max(_ph4, high[5])
+
+    _ema_up = _ema20 > _ema20[3]
+    _vol_ok = not vol_on or volume > 1.5 * _vol20
+
+    _pre2 = close[3] > _ema20[3]
+    _pre3 = close[4] > _ema20[4]
+    _pre4 = close[5] > _ema20[5]
+    _pre5 = close[6] > _ema20[6]
+
+    _s2 = _pb2 and close > _ph2 and close > _ema20 and _ema_up and _pre2 and _vol_ok and _base_ok
+    _s3 = _pb3 and close > _ph3 and close > _ema20 and _ema_up and _pre3 and _vol_ok and _base_ok
+    _s4 = _pb4 and close > _ph4 and close > _ema20 and _ema_up and _pre4 and _vol_ok and _base_ok
+    _s5 = _pb5 and close > _ph5 and close > _ema20 and _ema_up and _pre5 and _vol_ok and _base_ok
+
+    _ema_sig = _s2 or _s3 or _s4 or _s5
+
+    // Cooper 5-Day
+    _lc1 = close[1] < close[2]
+    _lc2 = close[2] < close[3]
+    _lc3 = close[3] < close[4]
+    _lc4 = close[4] < close[5]
+    _lc5 = close[5] < close[6]
+    _lc6 = close[6] < close[7]
+
+    _pb_n = _lc1 and _lc2 and _lc3 ? (_lc4 ? (_lc5 ? (_lc6 ? 0 : 5) : 4) : 3) : 0
+
+    _c_pl3 = math.min(math.min(low[1], low[2]), low[3])
+    _c_pl4 = math.min(_c_pl3, low[4])
+    _c_pl5 = math.min(_c_pl4, low[5])
+    _c_pl  = _pb_n == 5 ? _c_pl5 : _pb_n == 4 ? _c_pl4 : _c_pl3
+
+    _c_above50 = _pb_n > 0 ? _c_pl > _sma50 * 0.985 : false
+    _c_pbvol   = (volume[1] + volume[2] + volume[3]) / 3.0
+    _c_voldry  = _c_pbvol < 0.85 * _vol20
+    _c_trigger = close > high[1]
+
+    _cooper_sig = _pb_n >= 3 and _c_trigger and _base_ok and _c_above50 and _c_voldry
+
+    [_stage2, _adx, _bad_month, _ema_sig, _cooper_sig, close]
+
+// -- FETCH ALL 10 SYMBOLS (1 request.security call per stock) -----------------
+[st1, adx1, bm1, e1, c1, px1]   = request.security(sym1,  "D", f_signals())
+[st2, adx2, bm2, e2, c2, px2]   = request.security(sym2,  "D", f_signals())
+[st3, adx3, bm3, e3, c3, px3]   = request.security(sym3,  "D", f_signals())
+[st4, adx4, bm4, e4, c4, px4]   = request.security(sym4,  "D", f_signals())
+[st5, adx5, bm5, e5, c5, px5]   = request.security(sym5,  "D", f_signals())
+[st6, adx6, bm6, e6, c6, px6]   = request.security(sym6,  "D", f_signals())
+[st7, adx7, bm7, e7, c7, px7]   = request.security(sym7,  "D", f_signals())
+[st8, adx8, bm8, e8, c8, px8]   = request.security(sym8,  "D", f_signals())
+[st9, adx9, bm9, e9, c9, px9]   = request.security(sym9,  "D", f_signals())
+[st10,adx10,bm10,e10,c10,px10]  = request.security(sym10, "D", f_signals())
+
+// -- HELPER: extract short ticker from "NSE:SYMBOL" format --------------------
+f_ticker(sym) =>
+    idx = str.pos(sym, ":")
+    na(idx) ? sym : str.substring(sym, idx + 1)
+
+// -- SCANNER TABLE ------------------------------------------------------------
+var table tbl = table.new(position.top_left, 7, 12, bgcolor=color.new(color.black, 70), border_color=color.new(color.gray, 50), border_width=1, frame_color=color.new(color.silver, 20), frame_width=1)
+
+C_GRN  = color.new(color.lime,   10)
+C_RED  = color.new(color.red,    10)
+C_YLW  = color.new(color.yellow, 10)
+C_GRAY = color.new(color.gray,   30)
+C_HDR  = color.new(color.silver, 10)
+C_BLU  = color.new(color.blue,   10)
+C_BG   = color.new(color.navy,   55)
+SZ     = size.small
+SZ_S   = size.tiny
+
+f_row(row, sym, stage2, adx_val, bad_month, ema_sig, cooper_sig, px) =>
+    tick = f_ticker(sym)
+    both = ema_sig and cooper_sig
+    any  = ema_sig or cooper_sig
+
+    row_bg = bad_month  ? color.new(color.maroon, 75) :
+             both       ? color.new(color.yellow,  80) :
+             ema_sig    ? color.new(color.green,   80) :
+             cooper_sig ? color.new(color.blue,    80) :
+             na
+
+    table.cell(tbl, 0, row, tick, text_color=any ? color.white : C_GRAY, text_size=SZ, bgcolor=row_bg)
+    table.cell(tbl, 1, row, str.tostring(math.round(px, 1)), text_color=C_HDR, text_size=SZ, bgcolor=row_bg)
+    table.cell(tbl, 2, row, stage2 ? "S2 Y" : "S2 N", text_color=stage2 ? C_GRN : C_RED, text_size=SZ_S, bgcolor=row_bg)
+
+    adx_ok_row = adx_val >= 25 and adx_val <= 45
+    table.cell(tbl, 3, row, str.tostring(math.round(adx_val, 0)), text_color=adx_ok_row ? C_GRN : C_YLW, text_size=SZ_S, bgcolor=row_bg)
+    table.cell(tbl, 4, row, ema_sig    ? "PB" : "-",  text_color=ema_sig    ? C_GRN  : C_GRAY, text_size=SZ, bgcolor=row_bg)
+    table.cell(tbl, 5, row, cooper_sig ? "C5" : "-",  text_color=cooper_sig ? C_BLU  : C_GRAY, text_size=SZ, bgcolor=row_bg)
+
+    verdict = both       ? "BOTH" :
+              ema_sig    ? "EMA PB" :
+              cooper_sig ? "COOPER" :
+              bad_month  ? "SKIP"   : "--"
+    v_col   = both       ? C_YLW :
+              ema_sig    ? C_GRN :
+              cooper_sig ? C_BLU :
+              bad_month  ? C_RED  : C_GRAY
+    table.cell(tbl, 6, row, verdict, text_color=v_col, text_size=SZ, bgcolor=row_bg)
+
+if barstate.islast
+    table.cell(tbl, 0, 0, "SYMBOL",  text_color=C_HDR, text_size=SZ_S, bgcolor=C_BG)
+    table.cell(tbl, 1, 0, "PRICE",   text_color=C_HDR, text_size=SZ_S, bgcolor=C_BG)
+    table.cell(tbl, 2, 0, "STAGE",   text_color=C_HDR, text_size=SZ_S, bgcolor=C_BG)
+    table.cell(tbl, 3, 0, "ADX",     text_color=C_HDR, text_size=SZ_S, bgcolor=C_BG)
+    table.cell(tbl, 4, 0, "EMA PB",  text_color=C_HDR, text_size=SZ_S, bgcolor=C_BG)
+    table.cell(tbl, 5, 0, "COOPER",  text_color=C_HDR, text_size=SZ_S, bgcolor=C_BG)
+    table.cell(tbl, 6, 0, "SIGNAL",  text_color=C_HDR, text_size=SZ_S, bgcolor=C_BG)
+
+    f_row(1,  sym1,  st1,  adx1,  bm1,  e1,  c1,  px1)
+    f_row(2,  sym2,  st2,  adx2,  bm2,  e2,  c2,  px2)
+    f_row(3,  sym3,  st3,  adx3,  bm3,  e3,  c3,  px3)
+    f_row(4,  sym4,  st4,  adx4,  bm4,  e4,  c4,  px4)
+    f_row(5,  sym5,  st5,  adx5,  bm5,  e5,  c5,  px5)
+    f_row(6,  sym6,  st6,  adx6,  bm6,  e6,  c6,  px6)
+    f_row(7,  sym7,  st7,  adx7,  bm7,  e7,  c7,  px7)
+    f_row(8,  sym8,  st8,  adx8,  bm8,  e8,  c8,  px8)
+    f_row(9,  sym9,  st9,  adx9,  bm9,  e9,  c9,  px9)
+    f_row(10, sym10, st10, adx10, bm10, e10, c10, px10)
+
+// -- LEGEND -------------------------------------------------------------------
+var table leg = table.new(position.bottom_left, 1, 4, bgcolor=color.new(color.black, 80), border_color=color.new(color.gray, 60), border_width=1)
+
+if barstate.islast
+    table.cell(leg, 0, 0, "BOTH   = EMA Pullback + Cooper agree (gold row)",    text_color=C_YLW,  text_size=SZ_S)
+    table.cell(leg, 0, 1, "PB     = EMA Pullback signal (green row)",           text_color=C_GRN,  text_size=SZ_S)
+    table.cell(leg, 0, 2, "C5     = Cooper 5-Day signal (blue row)",            text_color=C_BLU,  text_size=SZ_S)
+    table.cell(leg, 0, 3, "SKIP   = bad month Jul/Sep/Dec | ADX 25-45 | Vol 1.5x", text_color=C_RED, text_size=SZ_S)

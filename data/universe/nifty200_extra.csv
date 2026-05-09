@@ -1,0 +1,145 @@
+symbol,name,sector
+ABCAPITAL.NS,Aditya Birla Capital,NBFC
+ABFRL.NS,Aditya Birla Fashion,Retail
+ALKEM.NS,Alkem Laboratories,Pharma
+AMARAJABAT.NS,Amara Raja Energy,Auto Ancillary
+ANGELONE.NS,Angel One,Fintech
+APLAPOLLO.NS,APL Apollo Tubes,Metals
+ASTRAL.NS,Astral,Consumer Durables
+BAJAJFINSV.NS,Bajaj Finserv,Insurance
+BALRAMCHIN.NS,Balrampur Chini,Consumer
+BATAINDIA.NS,Bata India,Retail
+BERGEPAINT.NS,Berger Paints,Consumer Durables
+BLUEDART.NS,Blue Dart Express,Logistics
+BLUESTARCO.NS,Blue Star,Consumer Electricals
+BRIGADE.NS,Brigade Enterprises,Real Estate
+CAMS.NS,CAMS,Fintech
+CANFINHOME.NS,Can Fin Homes,NBFC
+CASTROLIND.NS,Castrol India,Energy
+CESC.NS,CESC,Utilities
+CHOLAHLDNG.NS,Cholamandalam Financial,NBFC
+CLEAN.NS,Clean Science,Chemicals
+COFORGE.NS,Coforge,IT
+CONCORDBIO.NS,Concord Biotech,Pharma
+CRAFTSMAN.NS,Craftsman Automation,Capital Goods
+CRISIL.NS,CRISIL,Fintech
+CROMPTON.NS,Crompton Greaves Consumer,Consumer Electricals
+CYIENT.NS,Cyient,IT
+DATAPATTNS.NS,Data Patterns,Electronics
+DELHIVERY.NS,Delhivery,Logistics
+DEVYANI.NS,Devyani International,Consumer
+DMART.NS,Avenue Supermarts,Retail
+ELGIEQUIP.NS,Elgi Equipments,Capital Goods
+EMAMILTD.NS,Emami,FMCG
+ENGINERSIN.NS,Engineers India,Infrastructure
+EPL.NS,EPL,Consumer
+ESCORTS.NS,Escorts Kubota,Auto
+ETHOSL.NS,Ethos,Retail
+FINEORG.NS,Fine Organic,Chemicals
+FINPIPE.NS,Finolex Industries,Infrastructure
+FORTIS.NS,Fortis Healthcare,Healthcare
+FSL.NS,Firstsource Solutions,IT
+GILLETTE.NS,Gillette India,FMCG
+GLAXO.NS,GSK Pharmaceuticals,Pharma
+GLENMARK.NS,Glenmark Pharma,Pharma
+GODFRYPHLP.NS,Godfrey Phillips,Consumer
+GODREJIND.NS,Godrej Industries,Diversified
+GRINDWELL.NS,Grindwell Norton,Capital Goods
+HAPPSTMNDS.NS,Happiest Minds,IT
+HATSUN.NS,Hatsun Agro,Consumer
+HEXAWARE.NS,Hexaware Tech,IT
+HINDCOPPER.NS,Hindustan Copper,Mining
+HINDPETRO.NS,HPCL,Energy
+HITECH.NS,HiTech Pipes,Infrastructure
+HOMEFIRST.NS,Home First Finance,NBFC
+HONAUT.NS,Honeywell Automation,Capital Goods
+IDFCFIRSTB.NS,IDFC First Bank,Banking
+IIFL.NS,IIFL Finance,NBFC
+ITC.NS,ITC,FMCG
+J&KBANK.NS,J&K Bank,Banking
+JBMA.NS,JBM Auto,Auto
+JKCEMENT.NS,JK Cement,Cement
+JKLAKSHMI.NS,JK Lakshmi Cement,Cement
+JSWENERGY.NS,JSW Energy,Utilities
+JYOTHYLAB.NS,Jyothy Labs,FMCG
+KAJARIACER.NS,Kajaria Ceramics,Consumer Durables
+KALPATPOWR.NS,Kalpataru Power,Infrastructure
+KANSAINER.NS,Kansai Nerolac,Consumer Durables
+KEC.NS,KEC International,Infrastructure
+KFINTECH.NS,KFin Technologies,Fintech
+KNRCON.NS,KNR Constructions,Infrastructure
+KRBL.NS,KRBL,Consumer
+LALPATHLAB.NS,Dr Lal PathLabs,Healthcare
+LICI.NS,LIC of India,Insurance
+MARICO.NS,Marico,FMCG
+MASTEK.NS,Mastek,IT
+MAXHEALTH.NS,Max Healthcare,Healthcare
+METROPOLIS.NS,Metropolis Healthcare,Healthcare
+MFSL.NS,Max Financial Services,Insurance
+MHRIL.NS,Mahindra Holidays,Travel
+MMTC.NS,MMTC,Diversified
+MOTILALOFS.NS,Motilal Oswal,Fintech
+MUTHOOTFIN.NS,Muthoot Finance,NBFC
+NATCOPHARM.NS,Natco Pharma,Pharma
+NAVINFLUOR.NS,Navin Fluorine,Chemicals
+NBCC.NS,NBCC,Infrastructure
+NIACL.NS,New India Assurance,Insurance
+NILKAMAL.NS,Nilkamal,Consumer Durables
+NLC.NS,NLC India,Utilities
+NLCINDIA.NS,NLC India,Utilities
+NYKAA.NS,FSN E-Commerce (Nykaa),Internet
+OLECTRA.NS,Olectra Greentech,Capital Goods
+PAGEIND.NS,Page Industries,Retail
+PGHH.NS,Procter & Gamble,FMCG
+PHOENIXLTD.NS,The Phoenix Mills,Real Estate
+PNBHOUSING.NS,PNB Housing Finance,NBFC
+POLYCAB.NS,Polycab,Consumer Electricals
+POLYMED.NS,Poly Medicure,Healthcare
+PRESTIGE.NS,Prestige Estates,Real Estate
+PRINCEPIPE.NS,Prince Pipes,Infrastructure
+PRISM.NS,Prism Johnson,Cement
+RAJESHEXPO.NS,Rajesh Exports,Retail
+RAMCOCEM.NS,The Ramco Cements,Cement
+RELAXO.NS,Relaxo Footwears,Retail
+RITES.NS,RITES,Infrastructure
+ROSSARI.NS,Rossari Biotech,Chemicals
+ROUTE.NS,Route Mobile,IT
+SAPPHIRE.NS,Sapphire Foods,Consumer
+SCHAEFFLER.NS,Schaeffler India,Auto Ancillary
+SEQUENT.NS,Sequent Scientific,Pharma
+SHRIRAMFIN.NS,Shriram Finance,NBFC
+SKFINDIA.NS,SKF India,Auto Ancillary
+SOBHA.NS,Sobha,Real Estate
+SOLARINDS.NS,Solar Industries,Capital Goods
+SONACOMS.NS,Sona BLW Precision,Auto Ancillary
+STAR.NS,Star Health Insurance,Insurance
+STARCEMENT.NS,Star Cement,Cement
+STLTECH.NS,STL Technology,Electronics
+SUDARSCHEM.NS,Sudarshan Chemical,Chemicals
+SUMICHEM.NS,Sumitomo Chemical,Chemicals
+SUPRAJIT.NS,Suprajit Engineering,Auto Ancillary
+SUPREMEIND.NS,Supreme Industries,Consumer Durables
+SYNGENE.NS,Syngene International,Pharma
+TATACHEM.NS,Tata Chemicals,Chemicals
+TATACOMM.NS,Tata Communications,Telecom
+TATAINVEST.NS,Tata Investment,Diversified
+TBOTEK.NS,TBO Tek,Internet
+TEAMLEASE.NS,TeamLease Services,Internet
+TIINDIA.NS,Tube Investments of India,Auto Ancillary
+TIPSINDLTD.NS,TIPS Industries,Media
+TORNTPHARM.NS,Torrent Pharma,Pharma
+TRIDENT.NS,Trident,Textiles
+TTKPRESTIG.NS,TTK Prestige,Consumer Durables
+TVSSCS.NS,TVS Supply Chain,Logistics
+UCOBANK.NS,UCO Bank,Banking
+UJJIVANSFB.NS,Ujjivan Small Finance Bank,Banking
+VAIBHAVGBL.NS,Vaibhav Global,Retail
+VGUARD.NS,V-Guard Industries,Consumer Electricals
+VIJAYABANK.NS,Vijaya Bank,Banking
+VINATIORGA.NS,Vinati Organics,Chemicals
+VOLTAMP.NS,Voltamp Transformers,Capital Goods
+VSTIND.NS,VST Industries,FMCG
+WELCORP.NS,Welspun Corp,Metals
+WHIRLPOOL.NS,Whirlpool of India,Consumer Durables
+WIPRO.NS,Wipro,IT
+ZYDUSLIFE.NS,Zydus Lifesciences,Pharma

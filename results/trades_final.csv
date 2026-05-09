@@ -1,0 +1,337 @@
+symbol,sector,setup,entry_date,exit_date,pnl,r_multiple,win,exit_reason,trading_days,market_state
+RELIANCE.NS,Energy,A_flat_base,2017-02-23,2017-07-17,1980.68,1.981,True,target_2r,97,bull
+RELIANCE.NS,Energy,A_flat_base,2018-07-13,2018-08-29,1868.84,1.869,True,target_2r,32,bull
+RELIANCE.NS,Energy,A_flat_base,2019-04-22,2019-05-08,-673.5,-0.674,False,stop,11,bull
+RELIANCE.NS,Energy,A_flat_base,2020-09-11,2020-10-26,-1079.6,-1.08,False,stop,31,bull
+TCS.NS,IT,A_flat_base,2018-04-23,2018-07-18,1980.56,1.981,True,target_2r,62,bull
+TCS.NS,IT,A_flat_base,2018-09-05,2018-09-14,-1118.05,-1.118,False,stop,7,bull
+TCS.NS,IT,A_flat_base,2020-10-06,2021-08-13,1926.77,1.927,True,target_2r,214,bull
+INFY.NS,IT,A_flat_base,2019-10-14,2019-10-15,-467.45,-0.467,False,stop_gap_down,2,bull
+INFY.NS,IT,A_flat_base,2020-09-15,2020-10-08,1896.99,1.897,True,target_2r,17,bull
+HINDUNILVR.NS,FMCG,A_flat_base,2017-07-19,2017-12-28,2867.3,2.867,True,target_2r,112,bull
+HINDUNILVR.NS,FMCG,A_flat_base,2018-06-01,2018-06-05,-1123.66,-1.124,False,stop,3,bull
+HINDUNILVR.NS,FMCG,A_flat_base,2018-12-04,2019-03-22,-1091.69,-1.092,False,stop,75,bull
+HINDUNILVR.NS,FMCG,A_flat_base,2019-09-23,2020-03-19,-1137.64,-1.138,False,stop,122,bull
+HINDUNILVR.NS,FMCG,A_flat_base,2024-07-19,2024-10-24,-1097.2,-1.097,False,stop,68,bull
+ITC.NS,FMCG,A_flat_base,2017-01-27,2017-05-26,1759.91,1.76,True,target_2r,81,bull
+ITC.NS,FMCG,A_flat_base,2022-08-03,2022-09-22,2051.36,2.051,True,target_2r,34,bull
+ITC.NS,FMCG,A_flat_base,2023-07-21,2023-07-25,-1110.72,-1.111,False,stop_gap_down,3,bull
+ASIANPAINT.NS,Consumer,A_flat_base,2016-07-29,2016-11-09,-1042.8,-1.043,False,stop_gap_down,68,bull
+ASIANPAINT.NS,Consumer,A_flat_base,2018-05-14,2018-10-23,-1329.55,-1.33,False,stop_gap_down,111,bull
+ASIANPAINT.NS,Consumer,A_flat_base,2019-09-23,2020-03-19,-1224.58,-1.225,False,stop,122,bull
+ASIANPAINT.NS,Consumer,A_flat_base,2020-10-28,2020-12-07,2010.4,2.01,True,target_2r,28,bull
+ASIANPAINT.NS,Consumer,A_flat_base,2021-07-22,2021-07-30,-908.65,-0.909,False,stop,7,bull
+ASIANPAINT.NS,Consumer,A_flat_base,2023-05-12,2023-07-24,1607.16,1.607,True,target_2r,51,bull
+WIPRO.NS,IT,A_flat_base,2020-09-14,2020-10-08,1901.75,1.902,True,target_2r,18,bull
+WIPRO.NS,IT,A_flat_base,2021-05-28,2021-08-13,1827.8,1.828,True,target_2r,55,bull
+WIPRO.NS,IT,A_flat_base,2021-09-07,2021-09-29,-1155.98,-1.156,False,stop,16,bull
+ULTRACEMCO.NS,Cement,A_flat_base,2020-10-22,2021-01-06,2028.95,2.029,True,target_2r,53,bull
+ULTRACEMCO.NS,Cement,A_flat_base,2021-07-22,2021-10-25,-988.36,-0.988,False,stop,65,bull
+ULTRACEMCO.NS,Cement,A_flat_base,2023-12-13,2024-06-27,1752.89,1.753,True,target_2r,131,bull
+TITAN.NS,Consumer,A_flat_base,2016-07-01,2016-10-21,-1377.28,-1.377,False,stop,75,bull
+TITAN.NS,Consumer,A_flat_base,2017-04-06,2017-08-04,1798.19,1.798,True,target_2r,84,bull
+TITAN.NS,Consumer,A_flat_base,2017-09-06,2017-09-25,-1045.25,-1.045,False,stop,14,bull
+TITAN.NS,Consumer,A_flat_base,2019-03-18,2019-05-21,2059.2,2.059,True,target_2r,41,bull
+TITAN.NS,Consumer,A_flat_base,2020-10-08,2020-12-16,1773.36,1.773,True,target_2r,49,bull
+TITAN.NS,Consumer,A_flat_base,2021-06-04,2021-09-03,1986.0,1.986,True,target_2r,64,bull
+TITAN.NS,Consumer,A_flat_base,2021-09-16,2021-10-07,2074.31,2.074,True,target_2r,16,bull
+TITAN.NS,Consumer,A_flat_base,2021-10-08,2022-05-12,-1104.91,-1.105,False,stop,146,bull
+TITAN.NS,Consumer,A_flat_base,2022-08-29,2022-08-30,728.03,0.728,True,target_2r,2,bull
+TITAN.NS,Consumer,A_flat_base,2023-07-10,2023-08-03,-961.56,-0.962,False,stop,19,bull
+SUNPHARMA.NS,Pharma,A_flat_base,2018-08-16,2018-11-14,-1244.0,-1.244,False,stop,59,bull
+SUNPHARMA.NS,Pharma,A_flat_base,2024-01-24,2024-02-23,1925.87,1.926,True,target_2r,22,bull
+HCLTECH.NS,IT,A_flat_base,2018-04-13,2018-05-03,-1162.86,-1.163,False,stop,14,bull
+HCLTECH.NS,IT,A_flat_base,2019-10-25,2020-03-11,-1131.68,-1.132,False,stop,95,bull
+HCLTECH.NS,IT,A_flat_base,2020-09-09,2020-09-14,1251.0,1.251,True,target_2r,4,bull
+HCLTECH.NS,IT,A_flat_base,2020-09-15,2021-01-06,1731.83,1.732,True,target_2r,79,bull
+HCLTECH.NS,IT,A_flat_base,2023-11-17,2023-12-15,1989.44,1.989,True,target_2r,20,bull
+HCLTECH.NS,IT,A_flat_base,2023-12-18,2024-06-04,-982.54,-0.983,False,stop,112,bull
+NESTLEIND.NS,FMCG,A_flat_base,2018-05-14,2018-08-01,1892.45,1.892,True,target_2r,58,bull
+NESTLEIND.NS,FMCG,A_flat_base,2019-09-23,2020-02-03,2254.31,2.254,True,target_2r,91,bull
+TECHM.NS,IT,A_flat_base,2017-02-13,2017-03-27,-1095.67,-1.096,False,stop,29,bull
+TECHM.NS,IT,A_flat_base,2017-10-31,2018-01-11,1921.2,1.921,True,target_2r,52,bull
+TECHM.NS,IT,A_flat_base,2018-05-25,2018-05-28,-1183.44,-1.183,False,stop,2,bull
+TECHM.NS,IT,A_flat_base,2019-02-07,2019-06-27,-1010.8,-1.011,False,stop,92,bull
+TECHM.NS,IT,A_flat_base,2021-08-02,2021-09-23,1823.53,1.824,True,target_2r,37,bull
+TECHM.NS,IT,A_flat_base,2023-09-18,2023-09-28,-1094.72,-1.095,False,stop,8,bull
+TECHM.NS,IT,A_flat_base,2024-07-15,2024-08-28,2332.16,2.332,True,target_2r,31,bull
+POWERGRID.NS,Utilities,A_flat_base,2016-07-29,2017-01-31,2033.99,2.034,True,target_2r,125,bull
+POWERGRID.NS,Utilities,A_flat_base,2018-05-09,2018-05-31,-1046.05,-1.046,False,stop,17,bull
+POWERGRID.NS,Utilities,A_flat_base,2024-05-03,2024-06-04,-1040.32,-1.04,False,stop,22,bull
+NTPC.NS,Utilities,A_flat_base,2016-07-01,2016-07-15,-1061.11,-1.061,False,stop_gap_down,10,bull
+NTPC.NS,Utilities,A_flat_base,2016-08-19,2016-09-12,-1200.8,-1.201,False,stop,16,bull
+NTPC.NS,Utilities,A_flat_base,2017-01-13,2017-03-02,-1201.6,-1.202,False,stop,33,bull
+NTPC.NS,Utilities,A_flat_base,2021-05-12,2021-09-29,2165.43,2.165,True,target_2r,97,bull
+NTPC.NS,Utilities,A_flat_base,2022-04-04,2022-04-18,1715.0,1.715,True,target_2r,9,bull
+NTPC.NS,Utilities,A_flat_base,2022-04-19,2022-05-11,-1241.14,-1.241,False,stop,16,bull
+NTPC.NS,Utilities,A_flat_base,2022-11-02,2023-07-31,1897.46,1.897,True,target_2r,185,bull
+NTPC.NS,Utilities,A_flat_base,2023-09-04,2023-12-01,2372.7,2.373,True,target_2r,60,bull
+NTPC.NS,Utilities,A_flat_base,2023-12-04,2024-02-05,2533.96,2.534,True,target_2r,43,bull
+NTPC.NS,Utilities,A_flat_base,2024-03-05,2024-03-13,-1157.95,-1.158,False,stop,6,bull
+NTPC.NS,Utilities,A_flat_base,2024-09-20,2024-11-12,-1226.54,-1.227,False,stop,37,bull
+ONGC.NS,Energy,A_flat_base,2017-11-07,2017-11-14,-1285.3,-1.285,False,stop,6,bull
+ONGC.NS,Energy,A_flat_base,2019-04-25,2019-07-08,-1086.31,-1.086,False,stop,50,bull
+ONGC.NS,Energy,A_flat_base,2021-02-17,2021-02-25,1919.6,1.92,True,target_2r,7,bull
+ONGC.NS,Energy,A_flat_base,2021-10-06,2021-12-20,-1196.15,-1.196,False,stop,51,bull
+ONGC.NS,Energy,A_flat_base,2022-01-20,2022-05-10,-1151.83,-1.152,False,stop,73,bull
+ONGC.NS,Energy,A_flat_base,2023-09-04,2023-12-04,2397.44,2.397,True,target_2r,61,bull
+ONGC.NS,Energy,A_flat_base,2023-12-05,2024-01-15,1950.92,1.951,True,target_2r,29,bull
+ONGC.NS,Energy,A_flat_base,2024-01-16,2024-03-05,2014.62,2.015,True,target_2r,34,bull
+ONGC.NS,Energy,A_flat_base,2024-04-16,2024-05-09,-918.44,-0.918,False,stop,16,bull
+ONGC.NS,Energy,A_flat_base,2024-07-16,2024-09-11,-1121.14,-1.121,False,stop,40,bull
+DIVISLAB.NS,Pharma,A_flat_base,2017-12-28,2018-01-31,-1004.23,-1.004,False,stop,24,bull
+DIVISLAB.NS,Pharma,A_flat_base,2018-09-18,2018-10-24,-997.4,-0.997,False,stop,24,bull
+DIVISLAB.NS,Pharma,A_flat_base,2019-01-11,2019-03-06,1853.93,1.854,True,target_2r,37,bull
+DIVISLAB.NS,Pharma,A_flat_base,2021-06-01,2021-07-16,1800.12,1.8,True,target_2r,34,bull
+DIVISLAB.NS,Pharma,A_flat_base,2021-07-19,2021-09-01,1792.76,1.793,True,target_2r,31,bull
+DIVISLAB.NS,Pharma,A_flat_base,2023-07-06,2023-10-25,-984.34,-0.984,False,stop,76,bull
+DIVISLAB.NS,Pharma,A_flat_base,2024-07-29,2024-10-09,1536.46,1.536,True,target_2r,51,bull
+DRREDDY.NS,Pharma,A_flat_base,2018-08-24,2019-02-15,-1148.11,-1.148,False,stop,118,bull
+DRREDDY.NS,Pharma,A_flat_base,2023-08-10,2023-09-28,-1112.55,-1.113,False,stop,34,bull
+CIPLA.NS,Pharma,A_flat_base,2020-08-11,2021-09-29,1843.8,1.844,True,target_2r,284,bull
+CIPLA.NS,Pharma,A_flat_base,2023-07-28,2024-03-11,1875.26,1.875,True,target_2r,152,bull
+TATACONSUM.NS,FMCG,A_flat_base,2017-03-24,2017-05-24,-1238.48,-1.238,False,stop,41,bull
+TATACONSUM.NS,FMCG,A_flat_base,2017-10-30,2017-11-20,2399.24,2.399,True,target_2r,16,bull
+TATACONSUM.NS,FMCG,A_flat_base,2018-01-15,2018-01-18,-1215.95,-1.216,False,stop,4,bull
+TATACONSUM.NS,FMCG,A_flat_base,2019-06-27,2020-01-10,1981.1,1.981,True,target_2r,133,bull
+TATACONSUM.NS,FMCG,A_flat_base,2020-01-13,2020-03-12,-1138.51,-1.139,False,stop,42,bull
+TATACONSUM.NS,FMCG,A_flat_base,2020-09-04,2020-09-21,-895.53,-0.896,False,stop,12,bull
+TATACONSUM.NS,FMCG,A_flat_base,2021-08-16,2021-11-29,-1078.84,-1.079,False,stop,71,bull
+TATACONSUM.NS,FMCG,A_flat_base,2023-06-15,2023-12-26,1925.1,1.925,True,target_2r,131,bull
+TATACONSUM.NS,FMCG,A_flat_base,2024-01-15,2024-02-12,-1527.55,-1.528,False,stop,19,bull
+TATACONSUM.NS,FMCG,A_flat_base,2024-03-11,2024-03-19,-1108.54,-1.109,False,stop,7,bull
+COALINDIA.NS,Mining,A_flat_base,2016-08-18,2016-08-19,-1138.2,-1.138,False,stop,2,bull
+COALINDIA.NS,Mining,A_flat_base,2022-04-07,2022-05-02,-1200.0,-1.2,False,stop,16,bull
+COALINDIA.NS,Mining,A_flat_base,2022-11-10,2022-11-29,-1260.1,-1.26,False,stop,14,bull
+COALINDIA.NS,Mining,A_flat_base,2023-10-11,2023-11-13,2038.16,2.038,True,target_2r,23,bull
+COALINDIA.NS,Mining,A_flat_base,2023-12-20,2024-02-05,2064.3,2.064,True,target_2r,31,bull
+COALINDIA.NS,Mining,A_flat_base,2024-02-06,2024-08-23,2048.89,2.049,True,target_2r,134,bull
+BRITANNIA.NS,FMCG,A_flat_base,2017-10-13,2018-04-06,1894.02,1.894,True,target_2r,119,bull
+BRITANNIA.NS,FMCG,A_flat_base,2018-05-17,2018-05-31,1944.46,1.944,True,target_2r,11,bull
+BRITANNIA.NS,FMCG,A_flat_base,2018-06-01,2018-07-31,2272.85,2.273,True,target_2r,43,bull
+BRITANNIA.NS,FMCG,A_flat_base,2024-07-11,2024-11-12,-925.6,-0.926,False,stop,86,bull
+BPCL.NS,Energy,A_flat_base,2016-07-01,2016-10-04,1975.62,1.976,True,target_2r,64,bull
+BPCL.NS,Energy,A_flat_base,2019-11-21,2019-11-26,-1202.28,-1.202,False,stop,4,bull
+BPCL.NS,Energy,A_flat_base,2024-01-17,2024-02-02,1852.8,1.853,True,target_2r,11,bull
+BPCL.NS,Energy,A_flat_base,2024-09-30,2024-10-22,-1091.0,-1.091,False,stop,16,bull
+APOLLOHOSP.NS,Healthcare,A_flat_base,2018-02-02,2018-02-06,-1024.03,-1.024,False,stop,3,bull
+APOLLOHOSP.NS,Healthcare,A_flat_base,2021-02-16,2021-07-19,1349.42,1.349,True,target_2r,104,bull
+APOLLOHOSP.NS,Healthcare,A_flat_base,2021-07-27,2021-08-17,1410.74,1.411,True,target_2r,16,bull
+APOLLOHOSP.NS,Healthcare,A_flat_base,2023-06-16,2023-08-10,-1042.9,-1.043,False,stop,39,bull
+APOLLOHOSP.NS,Healthcare,A_flat_base,2024-02-12,2024-02-29,-1057.87,-1.058,False,stop,14,bull
+TATAPOWER.NS,Utilities,A_flat_base,2018-01-02,2018-01-18,-1286.77,-1.287,False,stop,13,bull
+TATAPOWER.NS,Utilities,A_flat_base,2021-08-03,2021-10-04,2034.52,2.035,True,target_2r,43,bull
+TATAPOWER.NS,Utilities,A_flat_base,2023-09-04,2023-10-23,-1330.6,-1.331,False,stop,34,bull
+HAVELLS.NS,Consumer Electricals,A_flat_base,2018-01-24,2018-01-31,-1119.59,-1.12,False,stop,5,bull
+HAVELLS.NS,Consumer Electricals,A_flat_base,2019-01-23,2019-02-18,-1300.6,-1.301,False,stop,18,bull
+HAVELLS.NS,Consumer Electricals,A_flat_base,2020-10-12,2020-11-10,1970.09,1.97,True,target_2r,22,bull
+HAVELLS.NS,Consumer Electricals,A_flat_base,2020-12-16,2021-01-07,1732.17,1.732,True,target_2r,16,bull
+HAVELLS.NS,Consumer Electricals,A_flat_base,2021-01-22,2021-06-21,-1110.4,-1.11,False,stop,100,bull
+HAVELLS.NS,Consumer Electricals,A_flat_base,2021-08-04,2021-10-18,1871.6,1.872,True,target_2r,51,bull
+HAVELLS.NS,Consumer Electricals,A_flat_base,2024-04-03,2024-05-16,1970.63,1.971,True,target_2r,29,bull
+HAVELLS.NS,Consumer Electricals,A_flat_base,2024-06-24,2024-07-19,-1137.04,-1.137,False,stop,19,bull
+BERGEPAINT.NS,Consumer,A_flat_base,2016-07-21,2016-11-09,-1171.77,-1.172,False,stop,74,bull
+BERGEPAINT.NS,Consumer,A_flat_base,2018-05-23,2018-08-29,1922.41,1.922,True,target_2r,69,bull
+BERGEPAINT.NS,Consumer,A_flat_base,2019-09-23,2019-10-18,2078.19,2.078,True,target_2r,18,bull
+BERGEPAINT.NS,Consumer,A_flat_base,2020-10-30,2020-12-23,2035.85,2.036,True,target_2r,38,bull
+BERGEPAINT.NS,Consumer,A_flat_base,2021-07-22,2021-08-06,-1345.65,-1.346,False,stop,12,bull
+BERGEPAINT.NS,Consumer,A_flat_base,2024-09-05,2024-10-07,-1157.06,-1.157,False,stop,22,bull
+COLPAL.NS,FMCG,A_flat_base,2019-11-08,2019-11-22,-1191.16,-1.191,False,stop,10,bull
+COLPAL.NS,FMCG,A_flat_base,2023-07-25,2023-07-28,2119.85,2.12,True,target_2r,4,bull
+COLPAL.NS,FMCG,A_flat_base,2023-12-29,2024-04-26,1474.85,1.475,True,target_2r,79,bull
+COLPAL.NS,FMCG,A_flat_base,2024-06-06,2024-09-23,1332.86,1.333,True,target_2r,75,bull
+COLPAL.NS,FMCG,A_flat_base,2024-09-30,2024-10-14,-1080.85,-1.081,False,stop,10,bull
+MARICO.NS,FMCG,A_flat_base,2017-04-27,2017-11-14,-1079.11,-1.079,False,stop,138,bull
+MARICO.NS,FMCG,A_flat_base,2021-06-16,2021-09-02,1913.44,1.913,True,target_2r,55,bull
+MARICO.NS,FMCG,A_flat_base,2024-07-19,2024-08-06,-1122.76,-1.123,False,stop,13,bull
+DABUR.NS,FMCG,A_flat_base,2024-07-24,2024-08-05,-1043.13,-1.043,False,stop_gap_down,9,bull
+GODREJCP.NS,FMCG,A_flat_base,2016-05-26,2016-09-16,2045.6,2.046,True,target_2r,78,bull
+GODREJCP.NS,FMCG,A_flat_base,2017-05-10,2018-06-01,2048.16,2.048,True,target_2r,266,bull
+GODREJCP.NS,FMCG,A_flat_base,2018-07-12,2018-09-21,-1094.89,-1.095,False,stop,48,bull
+GODREJCP.NS,FMCG,A_flat_base,2021-05-28,2021-06-14,2371.7,2.372,True,target_2r,12,bull
+GODREJCP.NS,FMCG,A_flat_base,2021-07-07,2022-01-24,-1044.2,-1.044,False,stop,138,bull
+GODREJCP.NS,FMCG,A_flat_base,2024-06-06,2024-10-24,-958.85,-0.959,False,stop,97,bull
+SIEMENS.NS,Capital Goods,A_flat_base,2016-07-01,2016-10-27,-1080.97,-1.081,False,stop,79,bull
+SIEMENS.NS,Capital Goods,A_flat_base,2017-05-10,2017-06-12,-1154.8,-1.155,False,stop,24,bull
+SIEMENS.NS,Capital Goods,A_flat_base,2019-07-01,2019-07-10,-1158.49,-1.158,False,stop,8,bull
+SIEMENS.NS,Capital Goods,A_flat_base,2020-11-27,2021-02-03,2020.03,2.02,True,target_2r,46,bull
+SIEMENS.NS,Capital Goods,A_flat_base,2024-05-07,2024-05-21,1834.34,1.834,True,target_2r,10,bull
+ABB.NS,Capital Goods,A_flat_base,2016-05-11,2016-05-20,-946.43,-0.946,False,stop,8,bull
+ABB.NS,Capital Goods,A_flat_base,2017-05-10,2017-06-06,-1099.81,-1.1,False,stop,20,bull
+ABB.NS,Capital Goods,A_flat_base,2021-01-19,2021-02-04,1895.6,1.896,True,target_2r,12,bull
+ABB.NS,Capital Goods,A_flat_base,2021-06-24,2021-07-27,-1114.36,-1.114,False,stop,23,bull
+ABB.NS,Capital Goods,A_flat_base,2023-05-05,2023-06-13,1856.18,1.856,True,target_2r,28,bull
+ABB.NS,Capital Goods,A_flat_base,2024-03-28,2024-05-13,1328.07,1.328,True,target_2r,29,bull
+LUPIN.NS,Pharma,A_flat_base,2018-09-10,2018-09-21,-1188.16,-1.188,False,stop,8,bull
+LUPIN.NS,Pharma,A_flat_base,2023-06-22,2023-07-27,1669.4,1.669,True,target_2r,25,bull
+LUPIN.NS,Pharma,A_flat_base,2023-07-28,2023-08-09,2056.6,2.057,True,target_2r,9,bull
+BIOCON.NS,Pharma,A_flat_base,2016-05-30,2016-08-08,2014.7,2.015,True,target_2r,50,bull
+BIOCON.NS,Pharma,A_flat_base,2017-01-27,2017-02-20,1981.52,1.982,True,target_2r,17,bull
+BIOCON.NS,Pharma,A_flat_base,2018-01-22,2018-04-24,1862.45,1.862,True,target_2r,62,bull
+BIOCON.NS,Pharma,A_flat_base,2018-04-25,2018-05-07,-1103.98,-1.104,False,stop,8,bull
+BIOCON.NS,Pharma,A_flat_base,2024-09-05,2024-10-04,-1299.86,-1.3,False,stop,21,bull
+TORNTPHARM.NS,Pharma,A_flat_base,2016-08-25,2016-10-27,-1042.33,-1.042,False,stop_gap_down,42,bull
+TORNTPHARM.NS,Pharma,A_flat_base,2019-01-11,2019-02-15,-1146.73,-1.147,False,stop,25,bull
+TORNTPHARM.NS,Pharma,A_flat_base,2019-10-25,2020-01-20,1855.55,1.856,True,target_2r,60,bull
+TORNTPHARM.NS,Pharma,A_flat_base,2021-06-15,2022-01-27,-1141.68,-1.142,False,stop,156,bull
+TORNTPHARM.NS,Pharma,A_flat_base,2023-06-01,2023-11-21,1699.82,1.7,True,target_2r,118,bull
+TORNTPHARM.NS,Pharma,A_flat_base,2024-01-12,2024-05-27,1842.98,1.843,True,target_2r,88,bull
+TORNTPHARM.NS,Pharma,A_flat_base,2024-09-02,2024-10-29,-1068.12,-1.068,False,stop,41,bull
+AUROPHARMA.NS,Pharma,A_flat_base,2016-09-23,2016-11-03,-1143.64,-1.144,False,stop,27,bull
+AUROPHARMA.NS,Pharma,A_flat_base,2018-09-07,2019-05-17,-1129.96,-1.13,False,stop,166,bull
+AUROPHARMA.NS,Pharma,A_flat_base,2021-06-14,2021-06-17,-1174.74,-1.175,False,stop,4,bull
+AUROPHARMA.NS,Pharma,A_flat_base,2023-05-17,2023-05-19,-1100.34,-1.1,False,stop,3,bull
+AUROPHARMA.NS,Pharma,A_flat_base,2023-06-27,2023-07-27,1934.36,1.934,True,target_2r,22,bull
+AUROPHARMA.NS,Pharma,A_flat_base,2023-07-28,2023-11-10,1597.19,1.597,True,target_2r,72,bull
+AUROPHARMA.NS,Pharma,A_flat_base,2023-12-22,2024-02-07,-1188.23,-1.188,False,stop,31,bull
+AUROPHARMA.NS,Pharma,A_flat_base,2024-07-16,2024-08-28,1996.05,1.996,True,target_2r,30,bull
+AUROPHARMA.NS,Pharma,A_flat_base,2024-09-13,2024-09-20,-1122.88,-1.123,False,stop,6,bull
+ALKEM.NS,Pharma,A_flat_base,2021-07-07,2021-08-16,1822.3,1.822,True,target_2r,28,bull
+ALKEM.NS,Pharma,A_flat_base,2021-09-27,2021-10-20,-881.98,-0.882,False,stop,17,bull
+ALKEM.NS,Pharma,A_flat_base,2023-05-10,2023-05-12,-1113.28,-1.113,False,stop,3,bull
+IPCALAB.NS,Pharma,A_flat_base,2023-09-18,2023-09-22,-1265.34,-1.265,False,stop,4,bull
+IPCALAB.NS,Pharma,A_flat_base,2024-09-06,2024-10-11,2076.68,2.077,True,target_2r,25,bull
+MOTHERSON.NS,Auto Ancillary,A_flat_base,2017-05-22,2017-06-19,2435.0,2.435,True,target_2r,21,bull
+MOTHERSON.NS,Auto Ancillary,A_flat_base,2021-06-03,2021-06-18,-1074.12,-1.074,False,stop,12,bull
+MOTHERSON.NS,Auto Ancillary,A_flat_base,2023-06-22,2023-07-25,2149.02,2.149,True,target_2r,23,bull
+MOTHERSON.NS,Auto Ancillary,A_flat_base,2023-09-05,2023-10-04,-1245.34,-1.245,False,stop,20,bull
+MOTHERSON.NS,Auto Ancillary,A_flat_base,2024-02-29,2024-03-13,-958.0,-0.958,False,stop,9,bull
+MOTHERSON.NS,Auto Ancillary,A_flat_base,2024-04-29,2024-05-31,2133.0,2.133,True,target_2r,23,bull
+MOTHERSON.NS,Auto Ancillary,A_flat_base,2024-07-19,2024-07-19,-1235.2,-1.235,False,stop,1,bull
+BALKRISIND.NS,Auto Ancillary,A_flat_base,2017-04-26,2017-06-20,1856.5,1.856,True,target_2r,39,bull
+BALKRISIND.NS,Auto Ancillary,A_flat_base,2017-06-22,2017-08-10,-1169.92,-1.17,False,stop,35,bull
+BALKRISIND.NS,Auto Ancillary,A_flat_base,2018-08-29,2018-09-03,-1094.5,-1.094,False,stop,4,bull
+BALKRISIND.NS,Auto Ancillary,A_flat_base,2019-11-29,2020-02-11,1883.1,1.883,True,target_2r,52,bull
+BALKRISIND.NS,Auto Ancillary,A_flat_base,2023-05-23,2023-10-13,1785.8,1.786,True,target_2r,100,bull
+EXIDEIND.NS,Auto Ancillary,A_flat_base,2016-06-27,2016-07-01,1539.78,1.54,True,target_2r,5,bull
+EXIDEIND.NS,Auto Ancillary,A_flat_base,2017-04-21,2017-05-03,-1108.72,-1.109,False,stop,8,bull
+EXIDEIND.NS,Auto Ancillary,A_flat_base,2018-05-08,2018-05-24,-1106.88,-1.107,False,stop,13,bull
+EXIDEIND.NS,Auto Ancillary,A_flat_base,2022-09-06,2022-09-26,-1194.31,-1.194,False,stop,15,bull
+EXIDEIND.NS,Auto Ancillary,A_flat_base,2022-11-16,2023-05-31,1913.9,1.914,True,target_2r,134,bull
+EXIDEIND.NS,Auto Ancillary,A_flat_base,2023-06-19,2023-07-05,2308.77,2.309,True,target_2r,12,bull
+EXIDEIND.NS,Auto Ancillary,A_flat_base,2023-08-02,2023-10-26,-1142.56,-1.143,False,stop,58,bull
+EXIDEIND.NS,Auto Ancillary,A_flat_base,2024-02-01,2024-03-13,-1183.96,-1.184,False,stop,29,bull
+EXIDEIND.NS,Auto Ancillary,A_flat_base,2024-06-26,2024-07-19,-1153.81,-1.154,False,stop,17,bull
+AMBUJACEM.NS,Cement,A_flat_base,2020-10-21,2020-11-17,1975.25,1.975,True,target_2r,20,bull
+AMBUJACEM.NS,Cement,A_flat_base,2021-05-28,2021-07-09,1922.15,1.922,True,target_2r,31,bull
+AMBUJACEM.NS,Cement,A_flat_base,2021-07-22,2021-11-29,-1164.0,-1.164,False,stop,88,bull
+AMBUJACEM.NS,Cement,A_flat_base,2022-09-07,2022-09-15,1998.14,1.998,True,target_2r,7,bull
+AMBUJACEM.NS,Cement,A_flat_base,2024-01-29,2024-07-01,2258.09,2.258,True,target_2r,103,bull
+ACC.NS,Cement,A_flat_base,2016-07-22,2016-10-21,-943.08,-0.943,False,stop,61,bull
+ACC.NS,Cement,A_flat_base,2017-04-25,2018-05-11,-1103.36,-1.103,False,stop,261,bull
+ACC.NS,Cement,A_flat_base,2020-10-28,2020-12-21,-918.48,-0.918,False,stop,38,bull
+ACC.NS,Cement,A_flat_base,2021-05-28,2021-07-19,1797.09,1.797,True,target_2r,37,bull
+ACC.NS,Cement,A_flat_base,2024-01-29,2024-06-04,-1090.87,-1.091,False,stop,85,bull
+RAMCOCEM.NS,Cement,A_flat_base,2016-06-08,2016-10-14,1848.64,1.849,True,target_2r,87,bull
+RAMCOCEM.NS,Cement,A_flat_base,2020-11-04,2021-02-15,1822.96,1.823,True,target_2r,71,bull
+LALPATHLAB.NS,Healthcare,A_flat_base,2021-06-01,2021-07-06,1896.29,1.896,True,target_2r,26,bull
+LALPATHLAB.NS,Healthcare,A_flat_base,2021-07-27,2021-07-30,2014.37,2.014,True,target_2r,4,bull
+LALPATHLAB.NS,Healthcare,A_flat_base,2023-07-28,2023-08-02,-1148.1,-1.148,False,stop,4,bull
+LALPATHLAB.NS,Healthcare,A_flat_base,2024-07-23,2024-10-04,1922.4,1.922,True,target_2r,52,bull
+METROPOLIS.NS,Healthcare,A_flat_base,2021-05-31,2021-06-10,1869.8,1.87,True,target_2r,9,bull
+FORTIS.NS,Healthcare,A_flat_base,2017-02-10,2017-03-07,-1202.3,-1.202,False,stop,17,bull
+FORTIS.NS,Healthcare,A_flat_base,2019-11-01,2019-11-15,-1192.28,-1.192,False,stop,10,bull
+FORTIS.NS,Healthcare,A_flat_base,2021-02-10,2021-02-17,-1182.59,-1.183,False,stop,6,bull
+FORTIS.NS,Healthcare,A_flat_base,2021-03-17,2021-05-07,2019.5,2.019,True,target_2r,34,bull
+FORTIS.NS,Healthcare,A_flat_base,2021-07-28,2021-08-10,-1202.52,-1.203,False,stop,10,bull
+FORTIS.NS,Healthcare,A_flat_base,2022-09-15,2022-09-22,-1215.96,-1.216,False,stop,6,bull
+MAXHEALTH.NS,Healthcare,A_flat_base,2023-12-01,2023-12-04,1527.29,1.527,True,target_2r,2,bull
+MFSL.NS,Insurance,A_flat_base,2016-07-21,2016-08-05,-1172.96,-1.173,False,stop,12,bull
+MFSL.NS,Insurance,A_flat_base,2023-08-25,2023-12-05,2119.76,2.12,True,target_2r,68,bull
+SBILIFE.NS,Insurance,A_flat_base,2019-10-17,2020-03-09,-1139.92,-1.14,False,stop,99,bull
+SBILIFE.NS,Insurance,A_flat_base,2021-07-14,2021-08-05,1743.0,1.743,True,target_2r,16,bull
+SBILIFE.NS,Insurance,A_flat_base,2022-08-01,2023-02-01,-1107.1,-1.107,False,stop,126,bull
+SBILIFE.NS,Insurance,A_flat_base,2024-08-21,2024-10-24,-1067.4,-1.067,False,stop,46,bull
+HDFCLIFE.NS,Insurance,A_flat_base,2019-07-01,2019-08-19,2300.33,2.3,True,target_2r,34,bull
+HDFCLIFE.NS,Insurance,A_flat_base,2019-10-31,2019-11-04,-1251.68,-1.252,False,stop,3,bull
+HDFCLIFE.NS,Insurance,A_flat_base,2023-06-01,2023-06-27,1936.58,1.937,True,target_2r,19,bull
+HDFCLIFE.NS,Insurance,A_flat_base,2023-06-28,2023-08-18,-1065.2,-1.065,False,stop,36,bull
+ICICIGI.NS,Insurance,A_flat_base,2019-03-06,2019-05-20,1856.89,1.857,True,target_2r,48,bull
+ICICIGI.NS,Insurance,A_flat_base,2023-06-28,2023-11-17,1820.52,1.821,True,target_2r,97,bull
+ICICIGI.NS,Insurance,A_flat_base,2024-09-20,2024-10-08,-1254.32,-1.254,False,stop,12,bull
+WHIRLPOOL.NS,Consumer Durables,A_flat_base,2019-12-27,2020-03-05,-999.58,-1.0,False,stop,49,bull
+WHIRLPOOL.NS,Consumer Durables,A_flat_base,2023-10-13,2023-11-02,-1041.64,-1.042,False,stop,14,bull
+WHIRLPOOL.NS,Consumer Durables,A_flat_base,2024-06-28,2024-10-16,1717.2,1.717,True,target_2r,76,bull
+VOLTAS.NS,Consumer Durables,A_flat_base,2016-08-02,2016-11-09,-1199.5,-1.2,False,stop,66,bull
+VOLTAS.NS,Consumer Durables,A_flat_base,2017-03-30,2017-05-26,2276.33,2.276,True,target_2r,39,bull
+VOLTAS.NS,Consumer Durables,A_flat_base,2017-07-28,2017-09-12,1773.78,1.774,True,target_2r,31,bull
+VOLTAS.NS,Consumer Durables,A_flat_base,2019-09-23,2020-03-12,-1365.25,-1.365,False,stop,117,bull
+VOLTAS.NS,Consumer Durables,A_flat_base,2020-09-15,2020-11-27,2165.94,2.166,True,target_2r,53,bull
+VOLTAS.NS,Consumer Durables,A_flat_base,2020-12-01,2021-01-21,2042.34,2.042,True,target_2r,37,bull
+VOLTAS.NS,Consumer Durables,A_flat_base,2021-01-22,2021-02-11,1795.53,1.796,True,target_2r,14,bull
+VOLTAS.NS,Consumer Durables,A_flat_base,2024-02-01,2024-04-08,1873.6,1.874,True,target_2r,45,bull
+VOLTAS.NS,Consumer Durables,A_flat_base,2024-04-23,2024-05-08,-1188.28,-1.188,False,stop,11,bull
+BLUESTARCO.NS,Consumer Durables,A_flat_base,2024-08-14,2024-09-26,1817.1,1.817,True,target_2r,31,bull
+Dixon.NS,Electronics,A_flat_base,2020-01-08,2020-02-28,-963.5,-0.964,False,stop,37,bull
+Dixon.NS,Electronics,A_flat_base,2020-07-21,2020-08-11,2242.48,2.242,True,target_2r,16,bull
+Dixon.NS,Electronics,A_flat_base,2023-08-04,2023-10-19,1916.74,1.917,True,target_2r,52,bull
+Dixon.NS,Electronics,A_flat_base,2023-12-04,2024-04-02,1600.85,1.601,True,target_2r,81,bull
+AMBER.NS,Electronics,A_flat_base,2020-08-04,2020-10-19,1607.87,1.608,True,target_2r,54,bull
+AMBER.NS,Electronics,A_flat_base,2020-12-01,2021-02-09,1550.09,1.55,True,target_2r,49,bull
+AMBER.NS,Electronics,A_flat_base,2021-02-10,2021-03-05,2396.6,2.397,True,target_2r,18,bull
+AMBER.NS,Electronics,A_flat_base,2023-07-27,2023-08-17,1727.16,1.727,True,target_2r,15,bull
+AMBER.NS,Electronics,A_flat_base,2024-06-27,2024-09-23,1923.05,1.923,True,target_2r,61,bull
+AMBER.NS,Electronics,A_flat_base,2024-10-04,2024-10-21,1158.12,1.158,True,target_2r,12,bull
+GUJGASLTD.NS,Utilities,A_flat_base,2017-04-17,2017-05-12,-1130.32,-1.13,False,stop,19,bull
+GUJGASLTD.NS,Utilities,A_flat_base,2019-12-10,2020-01-02,1766.09,1.766,True,target_2r,17,bull
+GUJGASLTD.NS,Utilities,A_flat_base,2021-02-19,2021-06-07,2088.61,2.089,True,target_2r,71,bull
+GUJGASLTD.NS,Utilities,A_flat_base,2021-06-16,2021-10-25,-1140.64,-1.141,False,stop,90,bull
+IGL.NS,Utilities,A_flat_base,2016-08-23,2016-10-10,2196.57,2.197,True,target_2r,33,bull
+IGL.NS,Utilities,A_flat_base,2017-02-07,2017-07-17,1925.2,1.925,True,target_2r,109,bull
+IGL.NS,Utilities,A_flat_base,2017-10-12,2018-02-02,-1233.38,-1.233,False,stop,79,bull
+IGL.NS,Utilities,A_flat_base,2019-01-21,2019-02-12,-1184.86,-1.185,False,stop,17,bull
+IGL.NS,Utilities,A_flat_base,2019-03-22,2019-06-03,2031.2,2.031,True,target_2r,47,bull
+IGL.NS,Utilities,A_flat_base,2019-11-11,2020-02-07,1990.34,1.99,True,target_2r,63,bull
+IGL.NS,Utilities,A_flat_base,2020-12-01,2022-01-20,-1166.34,-1.166,False,stop,284,bull
+IGL.NS,Utilities,A_flat_base,2023-04-06,2023-10-20,-1322.08,-1.322,False,stop,135,bull
+MGL.NS,Utilities,A_flat_base,2017-11-02,2017-11-09,-1142.3,-1.142,False,stop,6,bull
+MGL.NS,Utilities,A_flat_base,2019-10-15,2020-01-15,2024.32,2.024,True,target_2r,64,bull
+MGL.NS,Utilities,A_flat_base,2023-05-10,2024-01-18,1898.3,1.898,True,target_2r,174,bull
+MGL.NS,Utilities,A_flat_base,2024-06-21,2024-07-01,1837.4,1.837,True,target_2r,7,bull
+MGL.NS,Utilities,A_flat_base,2024-09-06,2024-10-18,-1560.4,-1.56,False,stop_gap_down,30,bull
+TORNTPOWER.NS,Utilities,A_flat_base,2018-01-01,2018-02-02,-1154.08,-1.154,False,stop,24,bull
+TORNTPOWER.NS,Utilities,A_flat_base,2018-12-03,2018-12-10,-1127.4,-1.127,False,stop,6,bull
+TORNTPOWER.NS,Utilities,A_flat_base,2021-05-11,2021-12-06,1818.28,1.818,True,target_2r,143,bull
+TORNTPOWER.NS,Utilities,A_flat_base,2022-02-07,2022-02-07,-1040.01,-1.04,False,stop,1,bull
+TORNTPOWER.NS,Utilities,A_flat_base,2023-06-07,2023-11-09,2331.05,2.331,True,target_2r,107,bull
+TORNTPOWER.NS,Utilities,A_flat_base,2023-12-08,2023-12-12,-1129.6,-1.13,False,stop,3,bull
+TORNTPOWER.NS,Utilities,A_flat_base,2024-01-05,2024-03-11,1933.52,1.934,True,target_2r,44,bull
+CESC.NS,Utilities,A_flat_base,2017-01-25,2017-02-13,1918.52,1.919,True,target_2r,13,bull
+CESC.NS,Utilities,A_flat_base,2017-04-20,2017-05-18,-1220.46,-1.22,False,stop,20,bull
+CESC.NS,Utilities,A_flat_base,2017-10-09,2017-11-07,-1161.76,-1.162,False,stop,21,bull
+CESC.NS,Utilities,A_flat_base,2021-06-08,2021-09-17,2083.0,2.083,True,target_2r,71,bull
+CESC.NS,Utilities,A_flat_base,2023-08-24,2023-11-20,2121.56,2.122,True,target_2r,59,bull
+CESC.NS,Utilities,A_flat_base,2023-12-05,2024-01-01,2046.32,2.046,True,target_2r,19,bull
+NHPC.NS,Utilities,A_flat_base,2017-01-13,2017-06-09,1997.41,1.997,True,target_2r,100,bull
+NHPC.NS,Utilities,A_flat_base,2018-01-05,2018-01-16,-1225.54,-1.226,False,stop,8,bull
+NHPC.NS,Utilities,A_flat_base,2021-10-19,2022-02-14,-1221.31,-1.221,False,stop_gap_down,82,bull
+NHPC.NS,Utilities,A_flat_base,2023-09-12,2023-09-12,-1231.83,-1.232,False,stop,1,bull
+OBEROIRLTY.NS,Real Estate,A_flat_base,2022-09-01,2022-09-26,-909.52,-0.91,False,stop,18,bull
+OBEROIRLTY.NS,Real Estate,A_flat_base,2023-05-16,2023-05-17,-1107.4,-1.107,False,stop,2,bull
+OBEROIRLTY.NS,Real Estate,A_flat_base,2023-07-07,2023-09-08,1851.65,1.852,True,target_2r,45,bull
+OBEROIRLTY.NS,Real Estate,A_flat_base,2023-11-16,2024-01-04,1862.18,1.862,True,target_2r,34,bull
+OBEROIRLTY.NS,Real Estate,A_flat_base,2024-01-05,2024-01-23,-1179.12,-1.179,False,stop,12,bull
+DLF.NS,Real Estate,A_flat_base,2017-04-07,2017-04-21,1914.95,1.915,True,target_2r,10,bull
+DLF.NS,Real Estate,A_flat_base,2021-01-13,2021-04-20,-1220.03,-1.22,False,stop,65,bull
+DLF.NS,Real Estate,A_flat_base,2023-05-16,2023-10-11,2174.24,2.174,True,target_2r,103,bull
+DLF.NS,Real Estate,A_flat_base,2024-01-05,2024-02-21,1789.89,1.79,True,target_2r,32,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2017-03-20,2017-04-18,2005.32,2.005,True,target_2r,20,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2017-05-03,2017-09-12,2114.54,2.115,True,target_2r,92,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2017-09-13,2018-01-10,1997.03,1.997,True,target_2r,83,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2020-12-17,2021-05-05,-1071.6,-1.072,False,stop,93,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2021-08-03,2021-08-11,-987.16,-0.987,False,stop,7,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2023-05-16,2023-05-18,-1188.1,-1.188,False,stop,3,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2023-06-14,2023-07-13,2037.24,2.037,True,target_2r,21,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2023-07-17,2023-08-04,-1059.76,-1.06,False,stop,15,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2023-12-15,2023-12-20,-1020.35,-1.02,False,stop,4,bull
+GODREJPROP.NS,Real Estate,A_flat_base,2024-01-05,2024-04-08,1749.28,1.749,True,target_2r,62,bull
+PRESTIGE.NS,Real Estate,A_flat_base,2017-06-15,2017-06-27,-1213.2,-1.213,False,stop,8,bull
+PRESTIGE.NS,Real Estate,A_flat_base,2018-01-05,2018-01-18,-1067.98,-1.068,False,stop,10,bull
+PRESTIGE.NS,Real Estate,A_flat_base,2021-09-02,2021-09-06,1917.24,1.917,True,target_2r,3,bull
+PRESTIGE.NS,Real Estate,A_flat_base,2023-05-16,2023-05-19,-1239.41,-1.239,False,stop,4,bull
+PRESTIGE.NS,Real Estate,A_flat_base,2023-06-06,2023-08-30,2153.77,2.154,True,target_2r,60,bull
+PRESTIGE.NS,Real Estate,A_flat_base,2023-12-01,2024-01-03,2163.5,2.164,True,target_2r,23,bull
+PHOENIXLTD.NS,Real Estate,A_flat_base,2022-10-28,2022-12-22,-1134.96,-1.135,False,stop,39,bull
+PHOENIXLTD.NS,Real Estate,A_flat_base,2023-07-10,2023-09-01,2279.6,2.28,True,target_2r,39,bull
+PHOENIXLTD.NS,Real Estate,A_flat_base,2024-01-08,2024-04-10,1864.2,1.864,True,target_2r,63,bull
+PHOENIXLTD.NS,Real Estate,A_flat_base,2024-09-02,2024-09-09,-1140.08,-1.14,False,stop,6,bull
