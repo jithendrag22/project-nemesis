@@ -1,0 +1,161 @@
+// ══════════════════════════════════════════════════════════════
+// Gap Fade V2 — Institutional Strategy
+// Project Nemesis | TradingView Pine Script v6
+// ══════════════════════════════════════════════════════════════
+// 
+// IMPORTANT: Set chart timeframe to 5 MINUTES before adding!
+// 
+// HOW TO USE:
+// 1. Open TradingView → search NSE stock (e.g. NSE:INFY)
+// 2. ⚠️ SET TIMEFRAME TO 5 MINUTES ⚠️
+// 3. Click "Pine Editor" → paste this → "Add to Chart"
+// 4. Check "Strategy Tester" tab for results
+// ══════════════════════════════════════════════════════════════
+
+//@version=6
+strategy("Gap Fade V2", 
+     overlay=true, 
+     initial_capital=100000,
+     default_qty_type=strategy.percent_of_equity,
+     default_qty_value=95,
+     commission_type=strategy.commission.cash_per_order,
+     commission_value=40,
+     slippage=1,
+     calc_on_every_tick=true,
+     margin_long=100,
+     margin_short=100)
+
+// ── INPUTS ──────────────────────────────────────────────────
+i_gap_min   = input.float(2.0,  "Min Gap Down %", minval=0.5, step=0.5, group="Strategy")
+i_gap_max   = input.float(15.0, "Max Gap Down %", minval=2.0, step=1.0, group="Strategy")
+i_exit_hour = input.int(15, "Hard Exit Hour (24h)", group="Strategy")
+i_exit_min  = input.int(15, "Hard Exit Minute", group="Strategy")
+
+// ── SESSION & DAY DETECTION ─────────────────────────────────
+// Use session change to reliably detect first bar of the day
+newDay = dayofweek != dayofweek[1] or (year != year[1] or month != month[1] or dayofmonth != dayofmonth[1])
+
+// ── PREVIOUS DAY CLOSE ──────────────────────────────────────
+// Get the daily close from the previous completed day
+prevDayClose = request.security(syminfo.tickerid, "1D", close[1], lookahead=barmerge.lookahead_on)
+
+// ── STATE VARIABLES ─────────────────────────────────────────
+var int    barNum         = 0
+var float  fcHigh         = na    // first candle high
+var float  fcLow          = na    // first candle low  
+var bool   fcGreen        = false // first candle is green?
+var float  gapPct         = na    // gap percentage
+var bool   isValidGap     = false // meets gap criteria?
+var float  entryLevel     = na    // entry trigger price
+var float  stopLevel      = na    // stop loss price
+var float  target1Level   = na    // 1R target
+var bool   inTrade        = false
+var bool   partialDone    = false
+var bool   doneTodayFlag  = false
+
+// ── RESET ON NEW DAY ────────────────────────────────────────
+if newDay
+    barNum        := 0
+    fcHigh        := na
+    fcLow         := na
+    fcGreen       := false
+    gapPct        := na
+    isValidGap    := false
+    entryLevel    := na
+    stopLevel     := na
+    target1Level  := na
+    inTrade       := false
+    partialDone   := false
+    doneTodayFlag := false
+
+barNum += 1
+
+// ── FIRST CANDLE: CAPTURE DATA ──────────────────────────────
+if barNum == 1 and not na(prevDayClose) and prevDayClose > 0
+    gapPct     := ((open - prevDayClose) / prevDayClose) * 100.0
+    fcHigh     := high
+    fcLow      := low
+    fcGreen    := close > open
+    isValidGap := gapPct <= -i_gap_min and gapPct >= -i_gap_max
+
+// ── ENTRY SIGNAL (bar 2 onwards) ────────────────────────────
+if barNum >= 2 and isValidGap and fcGreen and not inTrade and not doneTodayFlag
+    if not na(fcHigh) and not na(fcLow)
+        entryLevel  := fcHigh
+        stopLevel   := fcLow
+        float riskAmt = entryLevel - stopLevel
+        if riskAmt > 0
+            target1Level := entryLevel + riskAmt
+            // Enter when price breaks above first candle high
+            if high >= entryLevel
+                strategy.entry("GapFadeLong", strategy.long)
+                strategy.exit("Exit1R", "GapFadeLong", stop=stopLevel, limit=target1Level)
+                inTrade := true
+
+// ── MANAGE: PARTIAL EXIT + TRAIL ────────────────────────────
+if inTrade and not partialDone
+    if not na(target1Level) and high >= target1Level
+        // Target 1 hit — close half, move stop to breakeven
+        strategy.close("GapFadeLong", comment="Partial@1R", qty_percent=50)
+        partialDone := true
+        // Trail remaining with breakeven stop
+        if not na(entryLevel)
+            strategy.exit("TrailBE", "GapFadeLong", stop=entryLevel)
+
+if inTrade and partialDone
+    // Use previous bar's low as trailing stop (at least breakeven)
+    float trailPrice = math.max(nz(entryLevel, 0.0), nz(low[1], 0.0))
+    if trailPrice > 0
+        strategy.exit("TrailLow", "GapFadeLong", stop=trailPrice)
+
+// ── HARD EXIT AT 3:15 PM ────────────────────────────────────
+if hour == i_exit_hour and minute >= i_exit_min and strategy.position_size > 0
+    strategy.close_all(comment="EOD 3:15")
+    doneTodayFlag := true
+    inTrade := false
+
+// ── RESET TRADE STATE WHEN POSITION CLOSES ──────────────────
+if strategy.position_size == 0 and inTrade
+    inTrade := false
+    doneTodayFlag := true
+
+// ── VISUALS ─────────────────────────────────────────────────
+// Show entry/stop/target lines on signal days
+showLevels = isValidGap and fcGreen and barNum >= 2
+
+plot(showLevels ? entryLevel   : na, "Entry",    color=color.blue,  linewidth=2, style=plot.style_linebr)
+plot(showLevels ? stopLevel    : na, "Stop",     color=color.red,   linewidth=2, style=plot.style_linebr)
+plot(showLevels ? target1Level : na, "Target 1R", color=color.green, linewidth=1, style=plot.style_linebr)
+
+// Background: green = signal day, red = gap down but red candle
+bgcolor(isValidGap and fcGreen     ? color.new(color.green, 92) : na)
+bgcolor(isValidGap and not fcGreen ? color.new(color.red, 95)   : na)
+
+// Labels on first bar of gap days
+if barNum == 1 and isValidGap
+    string txt = "Gap: " + str.tostring(gapPct, "#.#") + "%"
+    txt += fcGreen ? "\n🟢 GREEN" : "\n🔴 RED"
+    color lblCol = fcGreen ? color.new(color.green, 10) : color.new(color.red, 10)
+    label.new(bar_index, high * 1.002, txt, 
+         style=label.style_label_down, color=lblCol, 
+         textcolor=color.white, size=size.small)
+
+// ── DEBUG TABLE ─────────────────────────────────────────────
+var table dbg = table.new(position.top_right, 2, 8, bgcolor=color.new(color.black, 80), border_width=1)
+if barstate.islast
+    table.cell(dbg, 0, 0, "Gap Fade V2",      text_color=color.white,  text_size=size.normal)
+    table.cell(dbg, 1, 0, "v6",               text_color=color.gray,   text_size=size.small)
+    table.cell(dbg, 0, 1, "Timeframe",         text_color=color.gray,   text_size=size.small)
+    table.cell(dbg, 1, 1, timeframe.period,    text_color=timeframe.isintraday ? color.green : color.red, text_size=size.small)
+    table.cell(dbg, 0, 2, "Prev Close",        text_color=color.gray,   text_size=size.small)
+    table.cell(dbg, 1, 2, str.tostring(prevDayClose, "#.##"), text_color=color.white, text_size=size.small)
+    table.cell(dbg, 0, 3, "Today Gap",         text_color=color.gray,   text_size=size.small)
+    table.cell(dbg, 1, 3, na(gapPct) ? "N/A" : str.tostring(gapPct, "#.##") + "%", text_color=color.yellow, text_size=size.small)
+    table.cell(dbg, 0, 4, "1st Candle",        text_color=color.gray,   text_size=size.small)
+    table.cell(dbg, 1, 4, fcGreen ? "GREEN ✅" : "RED ❌", text_color=fcGreen ? color.green : color.red, text_size=size.small)
+    table.cell(dbg, 0, 5, "Valid Signal?",      text_color=color.gray,   text_size=size.small)
+    table.cell(dbg, 1, 5, isValidGap and fcGreen ? "YES ✅" : "NO",  text_color=isValidGap and fcGreen ? color.green : color.red, text_size=size.small)
+    table.cell(dbg, 0, 6, "Bar# Today",        text_color=color.gray,   text_size=size.small)
+    table.cell(dbg, 1, 6, str.tostring(barNum), text_color=color.white,  text_size=size.small)
+    table.cell(dbg, 0, 7, "⚠️ Use 5min TF!",   text_color=timeframe.isintraday ? color.gray : color.red, text_size=size.small)
+    table.cell(dbg, 1, 7, timeframe.isintraday ? "OK" : "WRONG TF!", text_color=timeframe.isintraday ? color.green : color.red, text_size=size.small)
